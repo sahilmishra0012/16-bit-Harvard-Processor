@@ -1,0 +1,50 @@
+#! /usr/local/bin/vvp
+:ivl_version "10.2 (stable)" "(v10_2)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "system";
+:vpi_module "vhdl_sys";
+:vpi_module "v2005_math";
+:vpi_module "va_math";
+S_0x559fa5fe3990 .scope module, "tb" "tb" 2 2;
+ .timescale 0 0;
+v0x559fa6007c00_0 .var "a", 15 0;
+v0x559fa6007cc0_0 .net "out", 15 0, L_0x559fa60180d0;  1 drivers
+S_0x559fa5fe3b10 .scope module, "lef" "right" 2 5, 3 1 0, S_0x559fa5fe3990;
+ .timescale 0 0;
+    .port_info 0 /INPUT 16 "A"
+    .port_info 1 /OUTPUT 16 "shifted"
+v0x559fa5fae0c0_0 .net "A", 15 0, v0x559fa6007c00_0;  1 drivers
+v0x559fa6007710_0 .net *"_s0", 31 0, L_0x559fa6007d90;  1 drivers
+L_0x7fa7b0b1b018 .functor BUFT 1, C4<0000000000000000>, C4<0>, C4<0>, C4<0>;
+v0x559fa60077f0_0 .net *"_s3", 15 0, L_0x7fa7b0b1b018;  1 drivers
+L_0x7fa7b0b1b060 .functor BUFT 1, C4<00000000000000000000000000000010>, C4<0>, C4<0>, C4<0>;
+v0x559fa60078b0_0 .net/2u *"_s4", 31 0, L_0x7fa7b0b1b060;  1 drivers
+v0x559fa6007990_0 .net *"_s6", 31 0, L_0x559fa6017f60;  1 drivers
+v0x559fa6007ac0_0 .net "shifted", 15 0, L_0x559fa60180d0;  alias, 1 drivers
+L_0x559fa6007d90 .concat [ 16 16 0 0], v0x559fa6007c00_0, L_0x7fa7b0b1b018;
+L_0x559fa6017f60 .arith/div 32, L_0x559fa6007d90, L_0x7fa7b0b1b060;
+L_0x559fa60180d0 .part L_0x559fa6017f60, 0, 16;
+    .scope S_0x559fa5fe3990;
+T_0 ;
+    %pushi/vec4 0, 0, 16;
+    %store/vec4 v0x559fa6007c00_0, 0, 16;
+    %delay 1, 0;
+    %pushi/vec4 14, 0, 16;
+    %store/vec4 v0x559fa6007c00_0, 0, 16;
+    %delay 2, 0;
+    %pushi/vec4 3, 0, 16;
+    %store/vec4 v0x559fa6007c00_0, 0, 16;
+    %end;
+    .thread T_0;
+    .scope S_0x559fa5fe3990;
+T_1 ;
+    %vpi_call 2 15 "$monitor", "A= %b Output= %b", v0x559fa6007c00_0, v0x559fa6007cc0_0 {0 0 0};
+    %end;
+    .thread T_1;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "testbench.v";
+    "./right_shift.v";
