@@ -1,8 +1,8 @@
-`include "right_shift.v"
+`include "not.v"
 module tb;
             reg [15:0] a;
             wire [15:0] out;
-            right lef(a,out);
+            not lef(a,out);
             initial 
                 begin
                     a = 16'b0;
