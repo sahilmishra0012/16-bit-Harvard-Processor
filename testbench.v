@@ -1,9 +1,9 @@
-`include "nand.v"
+`include "xor.v"
 module tb;
         reg [15:0] a;
         reg [15:0] b;
         wire [15:0] out;
-        nand_gate nott(a,b,out);
+        xor_gate nott(a,b,out);
         initial 
             begin
                 a = 16'b0;b = 16'b01;#100;
