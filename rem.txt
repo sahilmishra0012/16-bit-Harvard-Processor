@@ -1,0 +1,4 @@
+16-bit Logical XOR
+16-bit Logical NAND
+16-bit Logical NOR
+16-bit Logical NXOR
