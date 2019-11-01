@@ -5,11 +5,10 @@ module tb;
         reverse nott(a,out);
         initial 
             begin
-                #1;
                 a = 16'b0;#100;
                 a = 16'b1110;#200;
                 a = 16'b0000011;#300;   
-        end
+            end
         initial
         $monitor("A= %b :: Output= %b",a,out);
 endmodule
