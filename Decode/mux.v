@@ -1,44 +1,134 @@
-module mux21(input select, output out);
+module mux21(input [31:0]code, output out);
 reg  out;
+reg select,Rdst2,Rdst1,Rsrc2,Rsrc1,RsrcAdd,RdstAdd;
+select=code[31:26];
+
+if(select>=000100)
+{
+    
+}
+
 
 always@(select or in0 or in1 or in2 or in3 or in4 or in5 or in6 or in7 or in8 or in9 or in10 or in11 or in12 or in13 or in14 or in15 or in16 or in17)
 begin
 if(select == 000000)
-out=in0;
+{
+    Rdst2=code[25:21];
+    Rsrc2=code[15:0];
+}
 if(select == 000001)
-out=in1;
+{
+    Rdst2=code[25:21];
+    Rsrc2=code[4:0];
+}
 if(select == 000010)
-out=in2;
+{
+    Rdst2=code[25:21];
+    RsrcAdd=code[7:0];
+}
 if(select == 000011)
-out=in3;
+{
+    RdstAdd=code[25:18];
+    Rsrc2=code[4:0];
+}
 if(select == 000100)
-out=in4;
+{
+    Rdst2=code[25:21];
+    Rdst1=code[20:16];
+    Rsrc2=code[9:5];
+    Rsrc1=code[4:0];
+}
 if(select == 000101)
-out=in5;
+{
+    Rdst2=code[25:21];
+    Rdst1=code[20:16];
+    Rsrc2=code[9:5];
+    Rsrc1=code[4:0];
+}
 if(select == 000110)
-out=in6;
+{
+    Rdst2=code[25:21];
+    Rdst1=code[20:16];
+    Rsrc2=code[9:5];
+    Rsrc1=code[4:0];
+}
 if(select == 000111)
-out=in7;
+{
+    Rdst2=code[25:21];
+    Rdst1=code[20:16];
+    Rsrc2=code[9:5];
+    Rsrc1=code[4:0];
+}
 if(select == 001000)
-out=in8;
+{
+    Rdst2=code[25:21];
+    Rdst1=code[20:16];
+    Rsrc2=code[9:5];
+    Rsrc1=code[4:0];
+}
 if(select == 001001)
-out=in9;
+{
+    Rdst2=code[25:21];
+    Rdst1=code[20:16];
+    Rsrc2=code[9:5];
+    Rsrc1=code[4:0];
+}
 if(select == 001010)
-out=in10;
+{
+    Rdst2=code[25:21];
+    Rdst1=code[20:16];
+    Rsrc2=code[9:5];
+    Rsrc1=code[4:0];
+}
 if(select == 001011)
-out=in11;
+{
+    Rdst2=code[25:21];
+    Rdst1=code[20:16];
+    Rsrc2=code[9:5];
+    Rsrc1=code[4:0];
+}
 if(select == 001100)
-out=in12;
+{
+    Rdst2=code[25:21];
+    Rdst1=code[20:16];
+    Rsrc2=code[9:5];
+    Rsrc1=code[4:0];
+}
 if(select == 001101)
-out=in13;
+{
+    Rdst2=code[25:21];
+    Rdst1=code[20:16];
+    Rsrc2=code[9:5];
+    Rsrc1=code[4:0];
+}
 if(select == 001110)
-out=in14;
+{
+    Rdst2=code[25:21];
+    Rdst1=code[20:16];
+    Rsrc2=code[9:5];
+    Rsrc1=code[4:0];
+}
 if(select == 001111)
-out=in15;
+{
+    Rdst2=code[25:21];
+    Rdst1=code[20:16];
+    Rsrc2=code[9:5];
+    Rsrc1=code[4:0];
+}
 if(select == 010000)
-out=in16;
+{
+    Rdst2=code[25:21];
+    Rdst1=code[20:16];
+    Rsrc2=code[9:5];
+    Rsrc1=code[4:0];
+}
 if(select == 010001)
-out=in17;
+{
+    Rdst2=code[25:21];
+    Rdst1=code[20:16];
+    Rsrc2=code[9:5];
+    Rsrc1=code[4:0];
+}
 end
 
 endmodule
