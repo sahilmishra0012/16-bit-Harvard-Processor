@@ -17,8 +17,8 @@ module mux21(input [31:0]code, output out);
 reg  out;
 reg select,Rdst2,Rdst1,Rsrc2,Rsrc1,RsrcAdd,RdstAdd;
 select=code[31:26];
-
-always@(select or in0 or in1 or in2 or in3 or in4 or in5 or in6 or in7 or in8 or in9 or in10 or in11 or in12 or in13 or in14 or in15 or in16 or in17)
+reg c;
+always@(select)
 begin
 if(select == 000000)
 {
@@ -46,6 +46,8 @@ if(select == 000100)
     Rdst1=code[20:16];
     Rsrc2=code[9:5];
     Rsrc1=code[4:0];
+    c=2'b00;
+    module adder_rd(Rsrc2,Rsrc1,c,Rdst1);
 }
 if(select == 000101)
 {
@@ -53,6 +55,9 @@ if(select == 000101)
     Rdst1=code[20:16];
     Rsrc2=code[9:5];
     Rsrc1=code[4:0];
+    c=2'b00;
+    module adder_rd(Rsrc2,Rsrc1,c,Rdst1);
+
 }
 if(select == 000110)
 {
@@ -60,6 +65,7 @@ if(select == 000110)
     Rdst1=code[20:16];
     Rsrc2=code[9:5];
     Rsrc1=code[4:0];
+    module negative(Rsrc1,Rdst1);
 }
 if(select == 000111)
 {

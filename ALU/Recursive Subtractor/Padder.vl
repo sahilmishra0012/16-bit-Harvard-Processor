@@ -6,7 +6,7 @@
 `include"decode.vl"
 
 
-module create_tb(a,d,c,out6);
+module sub_rd(a,d,c,out6);
 
 input [15:0] a,b,d;
 input [1:0] c;
