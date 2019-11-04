@@ -1,0 +1,19 @@
+`include"clm.vl"
+
+module clm_tb;
+
+reg [15:0] a,b;
+wire [31:0] mu;
+
+mult mod(a,b,mu);
+
+initial
+begin
+a=16'd65535;
+b=16'd650;
+end
+
+initial
+$monitor("%d %d %d",a,b,mu);
+
+endmodule
