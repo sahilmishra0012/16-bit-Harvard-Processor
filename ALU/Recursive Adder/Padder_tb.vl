@@ -11,7 +11,7 @@ reg [1:0] c;
 wire [15:0] out6;
 
 
-create_tb mod00(a,b,c,out6);
+adder_rd mod00(a,b,c,out6);
 
 
 initial 
