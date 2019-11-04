@@ -1,4 +1,4 @@
-`include"mux2-1.v"
+`include"/home/samthekiller/Desktop/Harvard Architecture/My_Code/ALU/barrel_left/mux2-1.v"
 module barrel_left(in,shft,out);
 
 input [3:0]shft;

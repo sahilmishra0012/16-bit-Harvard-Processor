@@ -1,9 +1,9 @@
-`include "P_Append.vl"
-`include"P_mux.vl"
-`include"P_create.vl"
-`include"xor.vl"
-`include"equate.vl"
-`include"decode.vl"
+`include "/home/samthekiller/Desktop/Harvard Architecture/My_Code/ALU/Recursive Adder/P_Append.vl"
+`include"/home/samthekiller/Desktop/Harvard Architecture/My_Code/ALU/Recursive Adder/P_mux.vl"
+`include"/home/samthekiller/Desktop/Harvard Architecture/My_Code/ALU/Recursive Adder/P_create.vl"
+`include"/home/samthekiller/Desktop/Harvard Architecture/My_Code/ALU/Recursive Adder/xor.vl"
+`include"/home/samthekiller/Desktop/Harvard Architecture/My_Code/ALU/Recursive Adder/equate.vl"
+`include"/home/samthekiller/Desktop/Harvard Architecture/My_Code/ALU/Recursive Adder/decode.vl"
 
 
 
