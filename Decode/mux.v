@@ -73,7 +73,7 @@ if(select == 000111)
     Rdst1=code[20:16];
     Rsrc2=code[9:5];
     Rsrc1=code[4:0];
-    multiplier mod111(Rsrc1,Rsrc2,Rdst1);
+    multiplier mod111(Rsrc2,Rsrc1,Rdst1);
 }
 if(select == 001000)
 {
@@ -88,7 +88,7 @@ if(select == 001001)
     Rdst1=code[20:16];
     Rsrc2=code[9:5];
     Rsrc1=code[4:0];
-    or_gate mod1001(Rsrc1,Rsrc2,Rdst1);
+    or_gate mod1001(Rsrc2,Rsrc1,Rdst1);
 }
 if(select == 001010)
 {
@@ -96,7 +96,7 @@ if(select == 001010)
     Rdst1=code[20:16];
     Rsrc2=code[9:5];
     Rsrc1=code[4:0];
-    xor_gate mod1010(Rsrc1,Rsrc2,Rdst1);
+    xor_gate mod1010(Rsrc2,Rsrc1,Rdst1);
 }
 if(select == 001011)
 {
@@ -104,7 +104,7 @@ if(select == 001011)
     Rdst1=code[20:16];
     Rsrc2=code[9:5];
     Rsrc1=code[4:0];
-    nand_gate mod1011(Rsrc1,Rsrc2,Rdst1);
+    nand_gate mod1011(Rsrc2,Rsrc1,Rdst1);
 }
 if(select == 001100)
 {
@@ -112,7 +112,7 @@ if(select == 001100)
     Rdst1=code[20:16];
     Rsrc2=code[9:5];
     Rsrc1=code[4:0];
-    nor_gate mod1100(Rsrc1,Rsrc2,Rdst1);
+    nor_gate mod1100(Rsrc2,Rsrc1,Rdst1);
 }
 if(select == 001101)
 {
@@ -120,7 +120,7 @@ if(select == 001101)
     Rdst1=code[20:16];
     Rsrc2=code[9:5];
     Rsrc1=code[4:0];
-    xnor_gate mod1101(Rsrc1,Rsrc2,Rdst1);
+    xnor_gate mod1101(Rsrc2,Rsrc1,Rdst1);
 }
 if(select == 001110)
 {
@@ -136,7 +136,7 @@ if(select == 001111)
     Rdst1=code[20:16];
     Rsrc2=code[9:5];
     Rsrc1=code[4:0];
-    barrel_left mod1111(in,shft,out);
+    barrel_left mod1111(Rsrc2,Rsrc1,Rdst1);
 }
 if(select == 010000)
 {
@@ -144,7 +144,7 @@ if(select == 010000)
     Rdst1=code[20:16];
     Rsrc2=code[9:5];
     Rsrc1=code[4:0];
-    barrel_right mod10000(in,shft,out);
+    barrel_right mod10000(Rsrc2,Rsrc1,Rdst1);
 }
 
 end
