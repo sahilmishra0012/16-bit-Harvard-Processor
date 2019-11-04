@@ -1,4 +1,4 @@
-`include"brute.vl"
+`include"P_brute.vl"
 
 module testtb;
 
