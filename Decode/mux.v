@@ -47,7 +47,7 @@ if(select == 000100)
     Rsrc2=code[9:5];
     Rsrc1=code[4:0];
     c=2'b00;
-    module adder_rd(Rsrc2,Rsrc1,c,Rdst1);
+    adder_rd mod00(Rsrc2,Rsrc1,c,Rdst1);
 }
 if(select == 000101)
 {
@@ -56,7 +56,7 @@ if(select == 000101)
     Rsrc2=code[9:5];
     Rsrc1=code[4:0];
     c=2'b00;
-    module adder_rd(Rsrc2,Rsrc1,c,Rdst1);
+    sub_rd mod00(Rsrc2,Rsrc1,c,Rdst1);
 
 }
 if(select == 000110)
@@ -65,7 +65,7 @@ if(select == 000110)
     Rdst1=code[20:16];
     Rsrc2=code[9:5];
     Rsrc1=code[4:0];
-    module negative(Rsrc1,Rdst1);
+    negative nott(Rsrc1,Rdst1);
 }
 if(select == 000111)
 {
@@ -73,6 +73,7 @@ if(select == 000111)
     Rdst1=code[20:16];
     Rsrc2=code[9:5];
     Rsrc1=code[4:0];
+    multiplier mult(Rsrc1,Rsrc2,Rdst1);
 }
 if(select == 001000)
 {
