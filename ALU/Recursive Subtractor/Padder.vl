@@ -6,11 +6,12 @@
 `include"decode.vl"
 
 
-module create_tb(a,b,c,out6);
+module create_tb(a,d,c,out6);
 
-input [15:0] a,b;
+input [15:0] a,b,d;
 input [1:0] c;
 output [15:0] out6;
+assign b=~d+1;
 
 wire [31:0] out;
 wire [33:0] s1;
@@ -25,7 +26,7 @@ wire [33:0] out4;
 wire [15:0] out5;
 wire [15:0] out6;
 
-assign b=~b+1;
+
 
 op mod0(a,b,out);
 
@@ -109,9 +110,6 @@ mux mod60(s2[63:62],s2[59:58],s3[63:62]);
 */
 
 //Stage3 comparison
-
-
-
 
 create mod45(s3[33:0],s4[33:0]);
 initiall mod1115(c[1:0],s5[1:0]);
@@ -273,7 +271,6 @@ back m33(out4[63:62],out5[31]);
 //assign out6=out5;
 
 //Performing the XOR operation to get the sum
-
 aor mo1(a[0],b[0],out5[0],out6[0]);
 aor mo2(a[1],b[1],out5[1],out6[1]);
 aor mo3(a[2],b[2],out5[2],out6[2]);
