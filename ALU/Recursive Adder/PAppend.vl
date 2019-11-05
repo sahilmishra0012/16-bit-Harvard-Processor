@@ -1,4 +1,4 @@
-`include"/home/samthekiller/Desktop/Harvard Architecture/My_Code/ALU/Recursive Adder/P_cla.vl"
+`include"/home/samthekiller/Desktop/Harvard Architecture/My_Code/ALU/Recursive Adder/Pcla.vl"
 `include"/home/samthekiller/Desktop/Harvard Architecture/My_Code/ALU/Recursive Adder/initial.vl"
 
 
@@ -29,26 +29,6 @@ last mod13(a[12],b[12],out[25:24]);
 last mod14(a[13],b[13],out[27:26]);
 last mod15(a[14],b[14],out[29:28]);
 last mod16(a[15],b[15],out[31:30]);
-/*
-last mod17(a[16],b[16],out[33:32]);
-last mod18(a[17],b[17],out[35:34]);
-last mod19(a[18],b[18],out[37:36]);
-last mod20(a[19],b[19],out[39:38]);
-last mod21(a[20],b[20],out[41:40]);
-last mod22(a[21],b[21],out[43:42]);
-last mod23(a[22],b[22],out[45:44]);
-last mod24(a[23],b[23],out[47:46]);
-last mod25(a[24],b[24],out[49:48]);
-last mod26(a[25],b[25],out[51:50]);
-last mod27(a[26],b[26],out[53:52]);
-last mod28(a[27],b[27],out[55:54]);
-last mod29(a[28],b[28],out[57:56]);
-last mod30(a[29],b[29],out[59:58]);
-last mod31(a[30],b[30],out[61:60]);
-last mod32(a[31],b[31],out[63:62]);
-*/
-
-
 initial
 $monitor("out=%b",out);
 
