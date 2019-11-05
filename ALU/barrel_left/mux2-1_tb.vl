@@ -16,6 +16,6 @@ shft=4'b0100;
 end
 
 initial
-$monitor("%b, %b",out,shft[1]);
+$monitor("Original: %b Left Shift: %b",in,out);
 
 endmodule
