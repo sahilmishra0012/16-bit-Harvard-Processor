@@ -1,5 +1,5 @@
-`include "hadd.v"
-`include "fadd.v"
+`include "/home/samthekiller/Desktop/Harvard Architecture/My_Code/ALU/Carry Save Array Multiplier/hadd.v"
+`include "/home/samthekiller/Desktop/Harvard Architecture/My_Code/ALU/Carry Save Array Multiplier/fadd.v"
 
 module multiplier(x,y,out1);
 input [15:0] x;
