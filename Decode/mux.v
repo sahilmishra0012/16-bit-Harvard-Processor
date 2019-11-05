@@ -12,7 +12,7 @@
 `include "/home/samthekiller/Desktop/Harvard Architecture/My_Code/ALU/negative/negate_custom.v"
 
 
-module mux21(input [31:0]code, output out,output select, output Rdst2,output Rdst1.output Rsrc2,output Rsrc1,output RdstAdd,output RsrcAdd);
+module mux21(input [31:0]code, output out);
 reg  out;
 wire select,Rdst2,Rdst1,Rsrc2,Rsrc1,RsrcAdd,RdstAdd;
 assign select=code[31:26];
