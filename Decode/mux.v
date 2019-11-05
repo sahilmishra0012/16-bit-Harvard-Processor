@@ -1,19 +1,18 @@
 `include"/home/samthekiller/Desktop/Harvard Architecture/My_Code/ALU/barrel_left/barrel16.v"
 `include"/home/samthekiller/Desktop/Harvard Architecture/My_Code/ALU/barrel_right/barrel16r.v"
-`include"/home/samthekiller/Desktop/Harvard Architecture/My_Code/ALU/NAND Gate/nand.v"
-`include"/home/samthekiller/Desktop/Harvard Architecture/My_Code/ALU/NOR Gate/nor.v"
-`include"/home/samthekiller/Desktop/Harvard Architecture/My_Code/ALU/NOT Gate/not.v"
-`include"/home/samthekiller/Desktop/Harvard Architecture/My_Code/ALU/OR Gate/or.v"
-`include"/home/samthekiller/Desktop/Harvard Architecture/My_Code/ALU/XNOR Gate/xnor.v"
-`include"/home/samthekiller/Desktop/Harvard Architecture/My_Code/ALU/XOR Gate/xor.v"
+`include"/home/samthekiller/Desktop/Harvard Architecture/My_Code/ALU/NAND Gate/nand_custom.v"
+`include"/home/samthekiller/Desktop/Harvard Architecture/My_Code/ALU/NOR Gate/nor_custom.v"
+`include"/home/samthekiller/Desktop/Harvard Architecture/My_Code/ALU/NOT Gate/not_custom.v"
+`include"/home/samthekiller/Desktop/Harvard Architecture/My_Code/ALU/OR Gate/or_custom.v"
+`include"/home/samthekiller/Desktop/Harvard Architecture/My_Code/ALU/XNOR Gate/xnor_custom.v"
+`include"/home/samthekiller/Desktop/Harvard Architecture/My_Code/ALU/XOR Gate/xor_custom.v"
 `include"/home/samthekiller/Desktop/Harvard Architecture/My_Code/ALU/Recursive Adder/Padder.vl"
 `include"/home/samthekiller/Desktop/Harvard Architecture/My_Code/ALU/Recursive Adder/Padder_Subtractor.vl"
 `include "/home/samthekiller/Desktop/Harvard Architecture/My_Code/ALU/Carry Save Array Multiplier/multiplier16bit.v"
-`include "/home/samthekiller/Desktop/Harvard Architecture/My_Code/ALU/negative/negate.v"
+`include "/home/samthekiller/Desktop/Harvard Architecture/My_Code/ALU/negative/negate_custom.v"
 
 
-module mux21(input [31:0]code, output out,output select, output Rdst2,
-output Rdst1.output Rsrc2,output Rsrc1,output RdstAdd,output RsrcAdd);
+module mux21(input [31:0]code, output out,output select, output Rdst2,output Rdst1.output Rsrc2,output Rsrc1,output RdstAdd,output RsrcAdd);
 reg  out;
 wire select,Rdst2,Rdst1,Rsrc2,Rsrc1,RsrcAdd,RdstAdd;
 assign select=code[31:26];
