@@ -1,0 +1,33 @@
+#! /usr/local/bin/vvp
+:ivl_version "10.2 (stable)" "(v10_2)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "system";
+:vpi_module "vhdl_sys";
+:vpi_module "v2005_math";
+:vpi_module "va_math";
+S_0x5593de218150 .scope module, "instruction_set" "instruction_set" 2 1;
+ .timescale 0 0;
+o0x7fb5f8e03018 .functor BUFZ 6, C4<zzzzzz>; HiZ drive
+v0x5593de2182d0_0 .net "Rdst1", 5 0, o0x7fb5f8e03018;  0 drivers
+o0x7fb5f8e03048 .functor BUFZ 6, C4<zzzzzz>; HiZ drive
+v0x5593de26f7f0_0 .net "Rdst2", 5 0, o0x7fb5f8e03048;  0 drivers
+o0x7fb5f8e03078 .functor BUFZ 9, C4<zzzzzzzzz>; HiZ drive
+v0x5593de26f8d0_0 .net "RdstAdd", 8 0, o0x7fb5f8e03078;  0 drivers
+o0x7fb5f8e030a8 .functor BUFZ 6, C4<zzzzzz>; HiZ drive
+v0x5593de26f990_0 .net "Rsrc1", 5 0, o0x7fb5f8e030a8;  0 drivers
+o0x7fb5f8e030d8 .functor BUFZ 6, C4<zzzzzz>; HiZ drive
+v0x5593de26fa70_0 .net "Rsrc2", 5 0, o0x7fb5f8e030d8;  0 drivers
+o0x7fb5f8e03108 .functor BUFZ 9, C4<zzzzzzzzz>; HiZ drive
+v0x5593de26fba0_0 .net "RsrcAdd", 8 0, o0x7fb5f8e03108;  0 drivers
+v0x5593de26fc80_0 .net *"_s3", 3 0, L_0x5593de270000;  1 drivers
+v0x5593de26fd60_0 .net "in", 2047 0, L_0x5593de26ff00;  1 drivers
+o0x7fb5f8e03198 .functor BUFZ 6, C4<zzzzzz>; HiZ drive
+v0x5593de26fe20_0 .net "opcode", 5 0, o0x7fb5f8e03198;  0 drivers
+L_0x5593de26ff00 .part/pv L_0x5593de270000, 2044, 4, 2048;
+L_0x5593de270000 .part o0x7fb5f8e03198, 0, 4;
+# The file index is used to find the file name in the following table.
+:file_names 3;
+    "N/A";
+    "<interactive>";
+    "ins.v";

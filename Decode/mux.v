@@ -11,6 +11,9 @@
 
 module muxfinal(input [31:0]code, output out);
 reg  out;
+wire select;
+output  [5:0] Rdst2,Rdst1,Rsrc2,Rsrc1;
+output [8:0] RsrcAdd,RdstAdd;
 reg  [5:0] Rdst2,Rdst1,Rsrc2,Rsrc1;
 reg [8:0] RsrcAdd,RdstAdd;
 assign select=code[31:26];
