@@ -16,8 +16,12 @@ reg c;
 // Rdst1=code[20:16];
 // Rsrc2=code[9:5];
 // Rsrc1=code[4:0];
+// rrel_left(in,shft,out);
+
+
 
 barrel_left(,)
+barrel_right(,)
 
 always@(select)
     case(select)
