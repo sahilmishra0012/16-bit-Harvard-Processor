@@ -23,100 +23,97 @@ assign select[5:0]=code[31:26];
 reg c;
 always@(select)
     case(select)
-        000000: begin
+        000000: begin//MOV
             Rdst2=code[25:21];
             immediate=code[15:0];
         end
-
-
-        000001: begin
+        000001: begin//MOV
             Rdst2=code[25:21];
             Rsrc2=code[4:0];
         end
-        000010: begin
+        000010: begin//LOAD
             Rdst2=code[25:21];
             RsrcAdd=code[7:0];
         end
-        000011: begin
-        
+        000011: begin//STORE
             RdstAdd=code[25:18];
             Rsrc2=code[4:0];
         end
-        000100: begin
+        000100: begin//ADD
             Rdst2=code[25:21];
             Rdst1=code[20:16];
             Rsrc2=code[9:5];
             Rsrc1=code[4:0];
             c=2'b00;
         end
-        000101: begin
+        000101: begin//SUB
             Rdst2=code[25:21];
             Rdst1=code[20:16];
             Rsrc2=code[9:5];
             Rsrc1=code[4:0];
             c=2'b00;
         end
-        000110: begin
+        000110: begin//NEG
             Rdst2=code[25:21];
             Rdst1=code[20:16];
             Rsrc2=code[9:5];
             Rsrc1=code[4:0];
         end
-        000111: begin
+        000111: begin//MUL
             Rdst2=code[25:21];
             Rdst1=code[20:16];
             Rsrc2=code[9:5];
             Rsrc1=code[4:0];
         end
-        001000: begin
+        001000: begin//DIV
             Rdst2=code[25:21];
             Rdst1=code[20:16];
             Rsrc2=code[9:5];
             Rsrc1=code[4:0];
         end
-        001001: begin
+        001001: begin//OR
             Rdst2=code[25:21];
             Rdst1=code[20:16];
             Rsrc2=code[9:5];
             Rsrc1=code[4:0];
         end
-        001010: begin
+        001010: begin//XOR
             Rdst2=code[25:21];
             Rdst1=code[20:16];
             Rsrc2=code[9:5];
             Rsrc1=code[4:0];
         end
-        001011: begin
+        001011: begin//NAND
             Rdst2=code[25:21];
             Rdst1=code[20:16];
             Rsrc2=code[9:5];
             Rsrc1=code[4:0];
         end
-        001100: begin
+        001100: begin//NOR
             Rdst2=code[25:21];
             Rdst1=code[20:16];
             Rsrc2=code[9:5];
             Rsrc1=code[4:0];
         end
-        001101: begin
+        001101: begin//XNOR
             Rdst2=code[25:21];
             Rdst1=code[20:16];
             Rsrc2=code[9:5];
             Rsrc1=code[4:0];
         end
-        001110: begin
+        001110: begin//NOT
             Rdst2=code[25:21];
             Rdst1=code[20:16];
             Rsrc2=code[9:5];
             Rsrc1=code[4:0];
         end
-        001111: begin
+        001111: begin//LLSH
             Rdst2=code[25:21];
             Rdst1=code[20:16];
             Rsrc2=code[9:5];
             Rsrc1=code[4:0];
         end
-        010000: begin
+        010000: begin//LRSH
             Rdst2=code[25:21];
             Rdst1=code[20:16];
             Rsrc2=code[9:5];

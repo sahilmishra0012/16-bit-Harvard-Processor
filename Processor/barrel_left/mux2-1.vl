@@ -1,4 +1,4 @@
-module mux2_1(select,in,in1,out);
+module mux21(select,in,in1,out);
 
 input  select;
 input  in,in1;

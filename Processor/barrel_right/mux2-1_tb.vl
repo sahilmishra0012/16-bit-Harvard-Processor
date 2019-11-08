@@ -10,7 +10,13 @@ barrel_right mod0(in,shft,out);
 
 initial
 begin
-#4
+#1
+in=16'b100000000000000;
+shft=4'b0000;
+
+#2
+in=16'b100000000000000;
+shft=4'b0010;
 
 #3
 in=16'b100000000000000;
@@ -22,6 +28,6 @@ shft=4'b1111;
 end
 
 initial
-$monitor("Input %b : Output %b",in,out);
+$monitor("%b, %b",out,shft[1]);
 
 endmodule

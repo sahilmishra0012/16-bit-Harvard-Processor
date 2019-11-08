@@ -1,4 +1,4 @@
-`include"barrel16.vl"
+`include"barrel16_left.v"
 
 module mux21_tb;
 
@@ -10,12 +10,12 @@ barrel_left mod0(in,shft,out);
 
 initial
 begin
+in=16'b000000000001000;
+shft=4'b001;
 
-in=16'b10;
-shft=4'b0100;
 end
 
 initial
-$monitor("Original: %b Left Shift: %b",in,out);
+$monitor("Input %b : Output %b",in,out);
 
 endmodule
