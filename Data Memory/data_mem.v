@@ -1,134 +1,132 @@
-module data_memory();
-output [255:0][16:0] in;
-reg [255:0][16:0] in;
+module memory(address,in,out,read);
 
-always@(select)
-    case(select)
-        000000: begin
-            in[63][31:26]=opcode[5:0];
-            in[63][25:21]=Rdst2[5:0];
-            in[63][15:0]=immediate[15:0];
-        end
+input [4:0] address;
+input [15:0] in;
+output reg [15:0] out;
+input read;
+reg [15:0] memory [31:0];			
+
+initial
+begin
+memory[0]=16'd0;
+memory[1]=16'd1;
+memory[2]=16'd2;
+memory[3]=16'd3;
+memory[4]=16'd4;
+memory[5]=16'd5;
+memory[6]=16'd6;
+memory[7]=16'd7;
+memory[8]=16'd8;
+memory[9]=16'd9;
+memory[10]=16'd10;
+memory[11]=16'd11;
+memory[12]=16'd12;
+memory[13]=16'd13;
+memory[14]=16'd14;
+memory[15]=16'd15;
+memory[16]=16'd16;
+memory[17]=16'd17;
+memory[18]=16'd18;
+memory[19]=16'd19;
+memory[20]=16'd20;
+memory[21]=16'd21;
+memory[22]=16'd22;
+memory[23]=16'd23;
+memory[24]=16'd24;
+memory[25]=16'd25;
+memory[26]=16'd26;
+memory[27]=16'd27;
+memory[28]=16'd28;
+memory[29]=16'd29;
+memory[30]=16'd30;
+memory[31]=16'd31;
+end
 
 
-        000001: begin
-            in[63][31:26]=opcode[5:0];
-            in[63][25:21]=Rdst2[5:0];
-            in[63][4:0]=Rsrc2[5:0];
-        end
-        000010: begin
-            in[63][31:26]=opcode[5:0];
-            in[63][25:21]=Rdst2[5:0];
-            in[63][7:0]=RsrcAdd;
-        end
-        000011: begin
-            in[63][31:26]=opcode[5:0];
-            in[63][25:18]=RdstAdd;
-            in[63][4:0]=Rsrc2[5:0];
-        end
-        000100: begin
-            in[63][31:26]=opcode[5:0];
-            in[63][25:21]=Rdst2[5:0];
-            in[63][20:16]=Rdst1[5:0];
-            in[63][9:5]=Rsrc2[5:0];
-            in[63][4:0]=Rsrc1[5:0];
-            // adder_rd mod100(Rsrc2,Rsrc1,c,Rdst1);
-        end
-        000101: begin
-            in[63][31:26]=opcode[5:0];
-            in[63][25:21]=Rdst2[5:0];
-            in[63][20:16]=Rdst1[5:0];
-            in[63][9:5]=Rsrc2[5:0];
-            in[63][4:0]=Rsrc1[5:0];
-            // sub_rd mod101(Rsrc2,Rsrc1,c,Rdst1);
-        end
-        000110: begin
-            in[63][31:26]=opcode[5:0];
-            in[63][25:21]=Rdst2[5:0];
-            in[63][20:16]=Rdst1[5:0];
-            in[63][9:5]=Rsrc2[5:0];
-            in[63][4:0]=Rsrc1[5:0];
-            // negative mod110(Rsrc1,Rdst1);
-        end
-        000111: begin
-            in[63][31:26]=opcode[5:0];
-            in[63][25:21]=Rdst2[5:0];
-            in[63][20:16]=Rdst1[5:0];
-            in[63][9:5]=Rsrc2[5:0];
-            in[63][4:0]=Rsrc1[5:0];
-            // multiplier mod111(Rsrc2,Rsrc1,Rdst1);
-        end
-        001000: begin
-            in[63][31:26]=opcode[5:0];
-            in[63][25:21]=Rdst2[5:0];
-            in[63][20:16]=Rdst1[5:0];
-            in[63][9:5]=Rsrc2[5:0];
-            in[63][4:0]=Rsrc1[5:0];
-        end
-        001001: begin
-            in[63][31:26]=opcode[5:0];
-            in[63][25:21]=Rdst2[5:0];
-            in[63][20:16]=Rdst1[5:0];
-            in[63][9:5]=Rsrc2[5:0];
-            in[63][4:0]=Rsrc1[5:0];
-            // or_gate mod1001(Rsrc2,Rsrc1,Rdst1);
-        end
-        001010: begin
-            in[63][31:26]=opcode[5:0];
-            in[63][25:21]=Rdst2[5:0];
-            in[63][20:16]=Rdst1[5:0];
-            in[63][9:5]=Rsrc2[5:0];
-            in[63][4:0]=Rsrc1[5:0];
-            // xor_gate mod1010(Rsrc2,Rsrc1,Rdst1);
-        end
-        001011: begin
-            in[63][31:26]=opcode[5:0];
-            in[63][25:21]=Rdst2[5:0];
-            in[63][20:16]=Rdst1[5:0];
-            in[63][9:5]=Rsrc2[5:0];
-            in[63][4:0]=Rsrc1[5:0];
-            // nand_gate mod1011(Rsrc2,Rsrc1,Rdst1);
-        end
-        001100: begin
-            in[63][31:26]=opcode[5:0];
-            in[63][25:21]=Rdst2[5:0];
-            in[63][20:16]=Rdst1[5:0];
-            in[63][9:5]=Rsrc2[5:0];
-            in[63][4:0]=Rsrc1[5:0];
-            // nor_gate mod1100(Rsrc2,Rsrc1,Rdst1);
-        end
-        001101: begin
-            in[63][31:26]=opcode[5:0];
-            in[63][25:21]=Rdst2[5:0];
-            in[63][20:16]=Rdst1[5:0];
-            in[63][9:5]=Rsrc2[5:0];
-            in[63][4:0]=Rsrc1[5:0];
-            // xnor_gate mod1101(Rsrc2,Rsrc1,Rdst1);
-        end
-        001110: begin
-            in[63][31:26]=opcode[5:0];
-            in[63][25:21]=Rdst2[5:0];
-            in[63][20:16]=Rdst1[5:0];
-            in[63][9:5]=Rsrc2[5:0];
-            in[63][4:0]=Rsrc1[5:0];
-            // not_gate mod1110(Rsrc1,Rdst1);
-        end
-        001111: begin
-            in[63][31:26]=opcode[5:0];
-            in[63][25:21]=Rdst2[5:0];
-            in[63][20:16]=Rdst1[5:0];
-            in[63][9:5]=Rsrc2[5:0];
-            in[63][4:0]=Rsrc1[5:0];
-            // barrel_left mod1111(Rsrc2,Rsrc1,Rdst1);
-        end
-        010000: begin
-            in[63][31:26]=opcode[5:0];
-            in[63][25:21]=Rdst2[5:0];
-            in[63][20:16]=Rdst1[5:0];
-            in[63][9:5]=Rsrc2[5:0];
-            in[63][4:0]=Rsrc1[5:0];
-            // barrel_right mod10000(Rsrc2,Rsrc1,Rdst1);
-        end
-    endcase
+always @(*)
+
+begin
+
+	if(read)
+	begin
+	out=memory[address];
+	end
+
+	else
+	begin	
+	memory[address]=in;
+	out=memory[address];  		
+	end
+
+end
+
 
 endmodule
+
+
+module mem(address,in,out,read);
+
+input [4:0] address;
+input [31:0] in;
+output reg [31:0] out;
+input read;
+reg [31:0] memory [31:0];			
+
+initial
+begin
+memory[0]=16'd0;
+memory[1]=16'd1;
+memory[2]=16'd2;
+memory[3]=16'd3;
+memory[4]=16'd4;
+memory[5]=16'd5;
+memory[6]=16'd6;
+memory[7]=16'd7;
+memory[8]=16'd8;
+memory[9]=16'd9;
+memory[10]=16'd10;
+memory[11]=16'd11;
+memory[12]=16'd12;
+memory[13]=16'd13;
+memory[14]=16'd14;
+memory[15]=16'd15;
+memory[16]=16'd16;
+memory[17]=16'd17;
+memory[18]=16'd18;
+memory[19]=16'd19;
+memory[20]=16'd20;
+memory[21]=16'd21;
+memory[22]=16'd22;
+memory[23]=16'd23;
+memory[24]=16'd24;
+memory[25]=16'd25;
+memory[26]=16'd26;
+memory[27]=16'd27;
+memory[28]=16'd28;
+memory[29]=16'd29;
+memory[30]=16'd30;
+memory[31]=16'd31;
+end
+
+
+always @(*)
+
+begin
+
+	if(read)
+	begin
+	out=memory[address];
+	end
+
+	else
+	begin	
+	memory[address]=in;
+	out=memory[address];  		
+	end
+
+end
+
+
+endmodule
+
+
