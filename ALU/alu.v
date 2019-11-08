@@ -1,4 +1,4 @@
-// `include"/home/samthekiller/Desktop/Harvard Architecture/My_Code/ALU/barrel_left/barrel16.vl"
+`include"/home/samthekiller/Desktop/Harvard Architecture/My_Code/ALU/barrel_left/barrel16.vl"
 // `include"/home/samthekiller/Desktop/Harvard Architecture/My_Code/ALU/barrel_right/barrel16r.vl"
 // `include"/home/samthekiller/Desktop/Harvard Architecture/My_Code/ALU/NAND Gate/nand_custom.v"
 // `include"/home/samthekiller/Desktop/Harvard Architecture/My_Code/ALU/NOR Gate/nor_custom.v"
@@ -21,6 +21,35 @@ reg  [5:0] Rdst2,Rdst1,Rsrc2,Rsrc1;
 reg [8:0] RsrcAdd,RdstAdd;
 assign select[5:0]=code[31:26];
 reg c;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 always@(select)
     case(select)
         000000: begin//MOV
