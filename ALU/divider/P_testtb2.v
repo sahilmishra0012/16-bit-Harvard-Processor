@@ -1,4 +1,4 @@
-`include"brute.vl"
+`include"brute.v"
 
 module testtb;
 

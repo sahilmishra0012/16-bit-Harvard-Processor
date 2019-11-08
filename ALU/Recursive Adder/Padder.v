@@ -1,9 +1,9 @@
-`include "P_Append.vl"
-`include"P_mux.vl"
-`include"P_create.vl"
-`include"xor.vl"
-`include"equate.vl"
-`include"decode.vl"
+`include "P_Append.v"
+`include"P_mux.v"
+`include"P_create.v"
+`include"xor.v"
+`include"equate.v"
+`include"decode.v"
 
 
 module create_tb(a,b,c,out6);

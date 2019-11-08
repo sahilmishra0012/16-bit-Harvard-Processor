@@ -1,5 +1,3 @@
-//`include"new.vl"
-
 module create(a,b,k);
 
 input  [15:0] a;

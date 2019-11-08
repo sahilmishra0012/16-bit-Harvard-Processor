@@ -1,5 +1,5 @@
-`include"P_cla.vl"
-`include"initial.vl"
+`include"P_cla.v"
+`include"initial.v"
 
 
 module op(a,b,out);

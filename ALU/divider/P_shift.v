@@ -1,5 +1,3 @@
-//`include"new.vl"
-
 module shift(a,k);
 
 input  [31:0] a;

@@ -1,11 +1,11 @@
-`include"P_compdiv.vl"
-`include"P_rca16.vl"
-`include"P_creator.vl"
-`include"P_shift.vl"
-`include"P_dmux.vl"
-`include"P_mu.vl"
-`include"P_shift1.vl"
-`include"P_m.vl"
+`include"P_compdiv.v"
+`include"P_rca16.v"
+`include"P_creator.v"
+`include"P_shift.v"
+`include"P_dmux.v"
+`include"P_mu.v"
+`include"P_shift1.v"
+`include"P_m.v"
 
 module divisions(aa,divisor,dividend,quotient,remainder);
 

@@ -1,5 +1,5 @@
-`include "half_adder.v"
-`include "full_adder.v"
+`include "half_add.v"
+`include "full_add.v"
 
 module multiplier(x,y,out1);
 input [15:0] x;
