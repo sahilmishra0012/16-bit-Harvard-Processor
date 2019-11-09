@@ -12,6 +12,8 @@
 `include "/home/samthekiller/Desktop/Harvard Architecture/My_Code/ALU/NOR Gate/nor_custom.v"
 `include "/home/samthekiller/Desktop/Harvard Architecture/My_Code/ALU/XNOR Gate/xnor_custom.v"
 `include "/home/samthekiller/Desktop/Harvard Architecture/My_Code/ALU/NOT Gate/not_custom.v"
+`include "/home/samthekiller/Desktop/Harvard Architecture/My_Code/ALU/Shift/right_shift.v"
+`include "/home/samthekiller/Desktop/Harvard Architecture/My_Code/ALU/Shift/right_left.v"
 module muxfinal();
 wire [5:0] select;
 input [31:0] code;
