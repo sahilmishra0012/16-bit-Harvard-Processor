@@ -7,6 +7,11 @@
 `include "/home/samthekiller/Desktop/Harvard Architecture/My_Code/ALU/Carry Save Array Multiplier/multiplier16bit.v"
 `include "/home/samthekiller/Desktop/Harvard Architecture/My_Code/ALU/divider/Divider.v"
 `include "/home/samthekiller/Desktop/Harvard Architecture/My_Code/ALU/OR Gate/or_custom.v"
+`include "/home/samthekiller/Desktop/Harvard Architecture/My_Code/ALU/XOR Gate/xor_custom.v"
+`include "/home/samthekiller/Desktop/Harvard Architecture/My_Code/ALU/NAND Gate/nand_custom.v"
+`include "/home/samthekiller/Desktop/Harvard Architecture/My_Code/ALU/NOR Gate/nor_custom.v"
+`include "/home/samthekiller/Desktop/Harvard Architecture/My_Code/ALU/XNOR Gate/xnor_custom.v"
+`include "/home/samthekiller/Desktop/Harvard Architecture/My_Code/ALU/NOT Gate/not_custom.v"
 module muxfinal();
 wire [5:0] select;
 input [31:0] code;
@@ -42,6 +47,21 @@ Divide div(b,a,divi);
 
 output [15:0] or_gat;
 or_gate or1(b,a,or_gat);
+
+output [15:0] xor_gat;
+xor_gate xor1(b,a,xor_gat);
+
+output [15:0] nand_gat;
+nand_gate nand1(b,a,nand_gat);
+
+output [15:0] nor_gat;
+nor_gate nor1(b,a,nor_gat);
+
+output [15:0] xnor_gat;
+xnor_gate xnor1(b,a,xnor_gat);
+
+output [15:0] not_gat;
+not_gate not1(a,not_gat);
 
 // memory mem3(Rdst1,d,1'b0);
 
