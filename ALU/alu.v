@@ -13,7 +13,7 @@
 `include "/home/samthekiller/Desktop/Harvard Architecture/My_Code/ALU/XNOR Gate/xnor_custom.v"
 `include "/home/samthekiller/Desktop/Harvard Architecture/My_Code/ALU/NOT Gate/not_custom.v"
 `include "/home/samthekiller/Desktop/Harvard Architecture/My_Code/ALU/Shift/right_shift.v"
-`include "/home/samthekiller/Desktop/Harvard Architecture/My_Code/ALU/Shift/right_left.v"
+`include "/home/samthekiller/Desktop/Harvard Architecture/My_Code/ALU/Shift/left_shift.v"
 module muxfinal();
 wire [5:0] select;
 input [31:0] code;
@@ -64,6 +64,12 @@ xnor_gate xnor1(b,a,xnor_gat);
 
 output [15:0] not_gat;
 not_gate not1(a,not_gat);
+
+output [15:0] left_sft;
+left lft1(b,a,left_sft);
+
+output [15:0] right_sft;
+right rght1(b,a,right_sft);
 
 // memory mem3(Rdst1,d,1'b0);
 
