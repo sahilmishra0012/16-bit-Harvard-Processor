@@ -1,5 +1,5 @@
-`include "half_add.v"
-`include "full_add.v"
+`include "/home/samthekiller/Desktop/Harvard Architecture/My_Code/ALU/Carry Save Array Multiplier/half_add.v"
+`include "/home/samthekiller/Desktop/Harvard Architecture/My_Code/ALU/Carry Save Array Multiplier/full_add.v"
 
 module multiplier(x,y,out1);
 input [15:0] x;

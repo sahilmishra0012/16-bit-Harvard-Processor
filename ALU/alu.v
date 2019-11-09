@@ -3,10 +3,15 @@
 `include "/home/samthekiller/Desktop/Harvard Architecture/My_Code/Decode/decode.v"
 `include "/home/samthekiller/Desktop/Harvard Architecture/My_Code/ALU/Recursive Adder/Padder.v"
 `include "/home/samthekiller/Desktop/Harvard Architecture/My_Code/Data Memory/data_mem.v"
+`include "/home/samthekiller/Desktop/Harvard Architecture/My_Code/ALU/negative/negate_custom.v"
+`include "/home/samthekiller/Desktop/Harvard Architecture/My_Code/ALU/Carry Save Array Multiplier/multiplier16bit.v"
+`include "/home/samthekiller/Desktop/Harvard Architecture/My_Code/ALU/divider/Divider.v"
+`include "/home/samthekiller/Desktop/Harvard Architecture/My_Code/ALU/OR Gate/or_custom.v"
 module muxfinal();
 wire [5:0] select;
 input [31:0] code;
 output  [5:0] Rdst2,Rdst1,Rsrc2,Rsrc1;
+output [15:0] a,b;
 output [8:0] RsrcAdd,RdstAdd;
 output [15:0] immediate;
 assign select[5:0]=code[31:26];
@@ -26,9 +31,19 @@ create_tb mod00(b,a,2'b0,sum);
 output [15:0] diff;
 create_tb mod01(b,~a,2'b0,diff);
 
+output [15:0] negate;
+negative neg(a,negate);
 
+output [31:0] multiplied;
+multiplier mult(a,b,multiplied);
 
-memory mem3(Rdst1,d,1'b0);
+output [15:0] divi;
+Divide div(b,a,divi);
+
+output [15:0] or_gat;
+or_gate or1(b,a,or_gat);
+
+// memory mem3(Rdst1,d,1'b0);
 
 // always@(select)
 //     case(select)
