@@ -1,5 +1,5 @@
-`include"P_cla.v"
-`include"initial.v"
+`include"/home/samthekiller/Desktop/Harvard Architecture/My_Code/ALU/Recursive Adder/P_cla.v"
+`include"/home/samthekiller/Desktop/Harvard Architecture/My_Code/ALU/Recursive Adder/initial.v"
 
 
 module op(a,b,out);

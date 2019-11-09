@@ -1,6 +1,6 @@
-module memory(address,in,out,read);
+module memory(address,out,read);
 
-input [4:0] address;
+input [5:0] address;
 input [15:0] in;
 output reg [15:0] out;
 input read;
@@ -54,7 +54,7 @@ begin
 
 	else
 	begin	
-	memory[address]=in;
+	memory[address]=out;
 	out=memory[address];  		
 	end
 

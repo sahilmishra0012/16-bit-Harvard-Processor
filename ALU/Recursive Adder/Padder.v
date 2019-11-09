@@ -1,9 +1,9 @@
-`include "P_Append.v"
-`include"P_mux.v"
-`include"P_create.v"
-`include"xor.v"
-`include"equate.v"
-`include"decode.v"
+`include "/home/samthekiller/Desktop/Harvard Architecture/My_Code/ALU/Recursive Adder/P_Append.v"
+`include"/home/samthekiller/Desktop/Harvard Architecture/My_Code/ALU/Recursive Adder/P_mux.v"
+`include"/home/samthekiller/Desktop/Harvard Architecture/My_Code/ALU/Recursive Adder/P_create.v"
+`include"/home/samthekiller/Desktop/Harvard Architecture/My_Code/ALU/Recursive Adder/xor.v"
+`include"/home/samthekiller/Desktop/Harvard Architecture/My_Code/ALU/Recursive Adder/equate.v"
+`include"/home/samthekiller/Desktop/Harvard Architecture/My_Code/ALU/Recursive Adder/decode.v"
 
 
 module create_tb(a,b,c,out6);

@@ -1,4 +1,4 @@
-module instruction_set();
+module instruction_set(input [31:0] array,output );
 input [5:0] opcode;
 input  [5:0] Rdst2,Rdst1,Rsrc2,Rsrc1;
 input [8:0] RsrcAdd,RdstAdd;
@@ -136,5 +136,20 @@ always@(select)
             // barrel_right mod10000(Rsrc2,Rsrc1,Rdst1);
         end
     endcase
+
+endmodule
+`include "Parameter.v"
+module Instruction_Memory(
+ input[15:0] pc,
+ output[15:0] instruction
+);
+
+ reg [`col - 1:0] memory [`row_i - 1:0];
+ wire [3 : 0] rom_addr = pc[4 : 1];
+ initial
+ begin
+  $readmemb("./test/test.prog", memory,0,14);
+ end
+ assign instruction =  memory[rom_addr]; 
 
 endmodule
