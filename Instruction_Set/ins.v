@@ -1,155 +1,84 @@
-module instruction_set(input [31:0] array,output );
-input [5:0] opcode;
-input  [5:0] Rdst2,Rdst1,Rsrc2,Rsrc1;
-input [8:0] RsrcAdd,RdstAdd;
-input [15:0] immediate;
-output [63:0][31:0] in;
-reg [63:0][31:0] in;
-assign select=opcode[5:0];
+module Instruction_Mem(Instruction_out, PCAdress);
+  output reg [15:0] Instruction_out;
+  input  [15:0] PCAdress;
+  
+  always @(PCAdress)
+  begin
+    case (PCAdress)
+		8'h0:  Instruction_out = 16'hc000; // LDI R0,0
+		8'h1:  Instruction_out = 16'ha802; // STM R0,2 #set direction as input CHECK ADDRESS
+		8'h2:  Instruction_out = 16'hc66b; // LDI R0,1643 #11 bit -405
+		8'h3:  Instruction_out = 16'hec00; // LDI R5,1024 #11 bit -1024
+		8'h4:  Instruction_out = 16'hd119; // LDI R2,281
+		8'h5:  Instruction_out = 16'h6895; // ADD R2,R2,R5
+		8'h6:  Instruction_out = 16'h6805; // ADD R0,R0,R5
+		8'h7:  Instruction_out = 16'h696d; // ADD R5,R5,R5
+		8'h8:  Instruction_out = 16'h68aa; // ADD R2,R5,R2
+		8'h9:  Instruction_out = 16'h7168; // SHL R5,R5
+		8'ha:  Instruction_out = 16'h6805; // ADD R0,R0,R5
+		8'hb:  Instruction_out = 16'h7168; // SHL R5,R5
+		8'hc:  Instruction_out = 16'h6895; // ADD R2,R2,R5
+		8'hd:  Instruction_out = 16'h6368; // NEG R5,R5
+		8'he:  Instruction_out = 16'h6802; // ADD R0,R0,R2
+		8'hf:  Instruction_out = 16'h6802; // ADD R0,R0,R2
+		8'h10:  Instruction_out = 16'ha818; // STM R0,24 #store special values
+		8'h11:  Instruction_out = 16'haa19; // STM R2,25
+		8'h12:  Instruction_out = 16'had1a; // STM R5,26
+		8'h13:  Instruction_out = 16'hf014; // LDI R6,20 #load R6 with jump address, main loop
+		8'h14:  Instruction_out = 16'ha003; // LDM R0,3 #load input to R0 CHECK ADDRESS
+		8'h15:  Instruction_out = 16'h4640; // NOT R1,R0
+		8'h16:  Instruction_out = 16'h1901; // ANDI R1,1 #mask bit 1 of input
+		8'h17:  Instruction_out = 16'hb108; // BRZ R1,8 #if bit1 of input was on then all off
+		8'h18:  Instruction_out = 16'h4640; // NOT R1,R0
+		8'h19:  Instruction_out = 16'h1902; // ANDI R1,2 #mask bit 2 of input
+		8'h1a:  Instruction_out = 16'hb110; // BRZ R1,16 #if bit2 of input was on then all on
+		8'h1b:  Instruction_out = 16'h4640; // NOT R1,R0
+		8'h1c:  Instruction_out = 16'h1904; // ANDI R1,4 #mask bit 3 of input
+		8'h1d:  Instruction_out = 16'hb119; // BRZ R1,25 #if bit3 of input was on then display
+		8'h1e:  Instruction_out = 16'h9b80; // JMPR R6 #end main loop
+		8'h1f:  Instruction_out = 16'hc000; // LDI R0,0 #start all off
+		8'h20:  Instruction_out = 16'h5840; // MOVA R1,R0
+		8'h21:  Instruction_out = 16'h5888; // MOVA R2,R1
+		8'h22:  Instruction_out = 16'h58d0; // MOVA R3,R2
+		8'h23:  Instruction_out = 16'h5918; // MOVA R4,R3
+		8'h24:  Instruction_out = 16'h5960; // MOVA R5,R4 #end all off
+		8'h25:  Instruction_out = 16'ha703; // LDM R7,3 #load input to R7 CHECK ADDRESS
+		8'h26:  Instruction_out = 16'h47f8; // NOT R7,R7
+		8'h27:  Instruction_out = 16'h1f01; // ANDI R7,1
+		8'h28:  Instruction_out = 16'hb7fd; // BRZ R7,-3 #while input bit 1 is on
+		8'h29:  Instruction_out = 16'h9b80; // JMPR R6 #jump back to main loop
+		8'h2a:  Instruction_out = 16'hc000; // LDI R0,0 #start all on
+		8'h2b:  Instruction_out = 16'h6400; // DEC R0,R0
+		8'h2c:  Instruction_out = 16'h5840; // MOVA R1,R0
+		8'h2d:  Instruction_out = 16'h5888; // MOVA R2,R1
+		8'h2e:  Instruction_out = 16'h58d0; // MOVA R3,R2
+		8'h2f:  Instruction_out = 16'h5918; // MOVA R4,R3
+		8'h30:  Instruction_out = 16'h5960; // MOVA R5,R4 #end all on
+		8'h31:  Instruction_out = 16'ha703; // LDM R7,3 #load input to R7 CHECK ADDRESS
+		8'h32:  Instruction_out = 16'h47f8; // NOT R7,R7
+		8'h33:  Instruction_out = 16'h1f02; // ANDI R7,2
+		8'h34:  Instruction_out = 16'hb7fd; // BRZ R7,-3 #while input bit 2 is on
+		8'h35:  Instruction_out = 16'h9b80; // JMPR R6 #jump back to main loop
+		8'h36:  Instruction_out = 16'ha018; // LDM R0,24 #start display
+		8'h37:  Instruction_out = 16'ha219; // LDM R2,25
+		8'h38:  Instruction_out = 16'ha51a; // LDM R5,26
+		8'h39:  Instruction_out = 16'h5850; // MOVA R1,R2
+		8'h3a:  Instruction_out = 16'h2940; // ORI R1,64
+		8'h3b:  Instruction_out = 16'hf808; // LDI R7,8
+		8'h3c:  Instruction_out = 16'h6c4f; // SUB R1,R1,R7
+		8'h3d:  Instruction_out = 16'hf801; // LDI R7,1
+		8'h3e:  Instruction_out = 16'h4ccf; // XOR R3,R1,R7
+		8'h3f:  Instruction_out = 16'h6cdd; // SUB R3,R3,R5
+		8'h40:  Instruction_out = 16'h5900; // MOVA R4,R0 
+		8'h41:  Instruction_out = 16'he800; // LDI R5,0 #end display
+		8'h42:  Instruction_out = 16'ha703; // LDM R7,3 #load input to R7 CHECK ADDRESS
+		8'h43:  Instruction_out = 16'h47f8; // NOT R7,R7
+		8'h44:  Instruction_out = 16'h1f04; // ANDI R7,4
+		8'h45:  Instruction_out = 16'hb7fd; // BRZ R7,-3 #while input bit 3 is on
+		8'h46:  Instruction_out = 16'h9b80; // JMPR R6 #jump back to main loop
 
 
-always@(select)
-    case(select)
-        000000: begin
-            in[63][31:26]=opcode[5:0];
-            in[63][25:21]=Rdst2[5:0];
-            in[63][15:0]=immediate[15:0];
-        end
-
-
-        000001: begin
-            in[63][31:26]=opcode[5:0];
-            in[63][25:21]=Rdst2[5:0];
-            in[63][4:0]=Rsrc2[5:0];
-        end
-        000010: begin
-            in[63][31:26]=opcode[5:0];
-            in[63][25:21]=Rdst2[5:0];
-            in[63][7:0]=RsrcAdd;
-        end
-        000011: begin
-            in[63][31:26]=opcode[5:0];
-            in[63][25:18]=RdstAdd;
-            in[63][4:0]=Rsrc2[5:0];
-        end
-        000100: begin
-            in[63][31:26]=opcode[5:0];
-            in[63][25:21]=Rdst2[5:0];
-            in[63][20:16]=Rdst1[5:0];
-            in[63][9:5]=Rsrc2[5:0];
-            in[63][4:0]=Rsrc1[5:0];
-            // adder_rd mod100(Rsrc2,Rsrc1,c,Rdst1);
-        end
-        000101: begin
-            in[63][31:26]=opcode[5:0];
-            in[63][25:21]=Rdst2[5:0];
-            in[63][20:16]=Rdst1[5:0];
-            in[63][9:5]=Rsrc2[5:0];
-            in[63][4:0]=Rsrc1[5:0];
-            // sub_rd mod101(Rsrc2,Rsrc1,c,Rdst1);
-        end
-        000110: begin
-            in[63][31:26]=opcode[5:0];
-            in[63][25:21]=Rdst2[5:0];
-            in[63][20:16]=Rdst1[5:0];
-            in[63][9:5]=Rsrc2[5:0];
-            in[63][4:0]=Rsrc1[5:0];
-            // negative mod110(Rsrc1,Rdst1);
-        end
-        000111: begin
-            in[63][31:26]=opcode[5:0];
-            in[63][25:21]=Rdst2[5:0];
-            in[63][20:16]=Rdst1[5:0];
-            in[63][9:5]=Rsrc2[5:0];
-            in[63][4:0]=Rsrc1[5:0];
-            // multiplier mod111(Rsrc2,Rsrc1,Rdst1);
-        end
-        001000: begin
-            in[63][31:26]=opcode[5:0];
-            in[63][25:21]=Rdst2[5:0];
-            in[63][20:16]=Rdst1[5:0];
-            in[63][9:5]=Rsrc2[5:0];
-            in[63][4:0]=Rsrc1[5:0];
-        end
-        001001: begin
-            in[63][31:26]=opcode[5:0];
-            in[63][25:21]=Rdst2[5:0];
-            in[63][20:16]=Rdst1[5:0];
-            in[63][9:5]=Rsrc2[5:0];
-            in[63][4:0]=Rsrc1[5:0];
-            // or_gate mod1001(Rsrc2,Rsrc1,Rdst1);
-        end
-        001010: begin
-            in[63][31:26]=opcode[5:0];
-            in[63][25:21]=Rdst2[5:0];
-            in[63][20:16]=Rdst1[5:0];
-            in[63][9:5]=Rsrc2[5:0];
-            in[63][4:0]=Rsrc1[5:0];
-            // xor_gate mod1010(Rsrc2,Rsrc1,Rdst1);
-        end
-        001011: begin
-            in[63][31:26]=opcode[5:0];
-            in[63][25:21]=Rdst2[5:0];
-            in[63][20:16]=Rdst1[5:0];
-            in[63][9:5]=Rsrc2[5:0];
-            in[63][4:0]=Rsrc1[5:0];
-            // nand_gate mod1011(Rsrc2,Rsrc1,Rdst1);
-        end
-        001100: begin
-            in[63][31:26]=opcode[5:0];
-            in[63][25:21]=Rdst2[5:0];
-            in[63][20:16]=Rdst1[5:0];
-            in[63][9:5]=Rsrc2[5:0];
-            in[63][4:0]=Rsrc1[5:0];
-            // nor_gate mod1100(Rsrc2,Rsrc1,Rdst1);
-        end
-        001101: begin
-            in[63][31:26]=opcode[5:0];
-            in[63][25:21]=Rdst2[5:0];
-            in[63][20:16]=Rdst1[5:0];
-            in[63][9:5]=Rsrc2[5:0];
-            in[63][4:0]=Rsrc1[5:0];
-            // xnor_gate mod1101(Rsrc2,Rsrc1,Rdst1);
-        end
-        001110: begin
-            in[63][31:26]=opcode[5:0];
-            in[63][25:21]=Rdst2[5:0];
-            in[63][20:16]=Rdst1[5:0];
-            in[63][9:5]=Rsrc2[5:0];
-            in[63][4:0]=Rsrc1[5:0];
-            // not_gate mod1110(Rsrc1,Rdst1);
-        end
-        001111: begin
-            in[63][31:26]=opcode[5:0];
-            in[63][25:21]=Rdst2[5:0];
-            in[63][20:16]=Rdst1[5:0];
-            in[63][9:5]=Rsrc2[5:0];
-            in[63][4:0]=Rsrc1[5:0];
-            // barrel_left mod1111(Rsrc2,Rsrc1,Rdst1);
-        end
-        010000: begin
-            in[63][31:26]=opcode[5:0];
-            in[63][25:21]=Rdst2[5:0];
-            in[63][20:16]=Rdst1[5:0];
-            in[63][9:5]=Rsrc2[5:0];
-            in[63][4:0]=Rsrc1[5:0];
-            // barrel_right mod10000(Rsrc2,Rsrc1,Rdst1);
-        end
+      default: Instruction_out = 16'b0000000000000000;
     endcase
-
-endmodule
-`include "Parameter.v"
-module Instruction_Memory(
- input[15:0] pc,
- output[15:0] instruction
-);
-
- reg [`col - 1:0] memory [`row_i - 1:0];
- wire [3 : 0] rom_addr = pc[4 : 1];
- initial
- begin
-  $readmemb("./test/test.prog", memory,0,14);
- end
- assign instruction =  memory[rom_addr]; 
-
-endmodule
+  end
+endmodule 

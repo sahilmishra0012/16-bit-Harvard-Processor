@@ -71,99 +71,63 @@ left lft1(b,a,left_sft);
 output [15:0] right_sft;
 right rght1(b,a,right_sft);
 
-// memory mem3(Rdst1,d,1'b0);
 
-// always@(select)
-//     case(select)
-//         000000: begin//MOV
-            
-//         end
-//         000001: begin//MOV
-            
-//         end
-//         000010: begin//LOAD
-            
-//         end
-//         000011: begin//STORE
-            
-//         end
-//         000100: begin//ADD
-//             c=2'b00;
-            
-//         end
-//         000101: begin//SUB
-//             Rdst2=code[25:21];
-//             Rdst1=code[20:16];
-//             Rsrc2=code[9:5];
-//             Rsrc1=code[4:0];
-//             c=2'b00;
-//         end
-//         000110: begin//NEG
-//             Rdst2=code[25:21];
-//             Rdst1=code[20:16];
-//             Rsrc2=code[9:5];
-//             Rsrc1=code[4:0];
-//         end
-//         000111: begin//MUL
-//             Rdst2=code[25:21];
-//             Rdst1=code[20:16];
-//             Rsrc2=code[9:5];
-//             Rsrc1=code[4:0];
-//         end
-//         001000: begin//DIV
-//             Rdst2=code[25:21];
-//             Rdst1=code[20:16];
-//             Rsrc2=code[9:5];
-//             Rsrc1=code[4:0];
-//         end
-//         001001: begin//OR
-//             Rdst2=code[25:21];
-//             Rdst1=code[20:16];
-//             Rsrc2=code[9:5];
-//             Rsrc1=code[4:0];
-//         end
-//         001010: begin//XOR
-//             Rdst2=code[25:21];
-//             Rdst1=code[20:16];
-//             Rsrc2=code[9:5];
-//             Rsrc1=code[4:0];
-//         end
-//         001011: begin//NAND
-//             Rdst2=code[25:21];
-//             Rdst1=code[20:16];
-//             Rsrc2=code[9:5];
-//             Rsrc1=code[4:0];
-//         end
-//         001100: begin//NOR
-//             Rdst2=code[25:21];
-//             Rdst1=code[20:16];
-//             Rsrc2=code[9:5];
-//             Rsrc1=code[4:0];
-//         end
-//         001101: begin//XNOR
-//             Rdst2=code[25:21];
-//             Rdst1=code[20:16];
-//             Rsrc2=code[9:5];
-//             Rsrc1=code[4:0];
-//         end
-//         001110: begin//NOT
-//             Rdst2=code[25:21];
-//             Rdst1=code[20:16];
-//             Rsrc2=code[9:5];
-//             Rsrc1=code[4:0];
-//         end
-//         001111: begin//LLSH
-//             Rdst2=code[25:21];
-//             Rdst1=code[20:16];
-//             Rsrc2=code[9:5];
-//             Rsrc1=code[4:0];
-//         end
-//         010000: begin//LRSH
-//             Rdst2=code[25:21];
-//             Rdst1=code[20:16];
-//             Rsrc2=code[9:5];
-//             Rsrc1=code[4:0];
-//         end
-//     endcase
+always@(select)
+    case(select)
+        000000: begin//MOV
+            memory mem1(Rdst1,code[15:0],0'b1);
+        end
+
+        000001: begin//MOV
+            memory mem1(Rdst1,Rsrc1,0'b1);
+        end
+
+        000010: begin//LOAD
+        memory mem1(Rdst1,Rsrc1,0'b1);   
+        end
+
+        000011: begin//STORE    
+        end
+
+        000100: begin//ADD
+        end
+
+        000101: begin//SUB
+        end
+
+        000110: begin//NEG
+        end
+
+        000111: begin//MUL
+        end
+
+        001000: begin//DIV
+        end
+
+        001001: begin//OR
+        end
+
+        001010: begin//XOR
+        end
+
+        001011: begin//NAND
+        end
+
+        001100: begin//NOR
+        end
+
+        001101: begin//XNOR
+        end
+
+        001110: begin//NOT
+        end
+
+        001111: begin//LLSH
+        end
+
+        010000: begin//LRSH
+        end
+
+    endcase
 
 endmodule
