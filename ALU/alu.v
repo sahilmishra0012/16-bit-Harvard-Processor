@@ -14,7 +14,7 @@
 `include "/home/samthekiller/Desktop/Harvard Architecture/My_Code/ALU/NOT Gate/not_custom.v"
 `include "/home/samthekiller/Desktop/Harvard Architecture/My_Code/ALU/Shift/right_shift.v"
 `include "/home/samthekiller/Desktop/Harvard Architecture/My_Code/ALU/Shift/left_shift.v"
-module muxfinal(
+module alumodule(
 input [31:0] code,
 output [15:0] sum,
 output [15:0] diff,

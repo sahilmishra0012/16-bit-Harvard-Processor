@@ -1,24 +1,26 @@
 `include "/home/samthekiller/Desktop/Harvard Architecture/My_Code/ALU/alu.v"
-module write_back(
-input [15:0] sum,
-input [15:0] diff,
-input [15:0] negate,
-input [31:0] multiplied,
-input [15:0] divi,
-input [15:0] or_gat,
-input [15:0] xor_gat,
-input [15:0] nand_gat,
-input [15:0] nor_gat,
-input [15:0] xnor_gat,
-input [15:0] not_gat,
-input [15:0] left_sft,
-input [15:0] right_sft,
-input [5:0] select
-);
-
+`include "/home/samthekiller/Desktop/Harvard Architecture/My_Code/Data Memory/data_mem.v"
+module write_back();
+wire [31:0] code;
+wire [15:0] sum;
+wire [15:0] diff;
+wire [15:0] negate;
+wire [31:0] multiplied;
+wire [15:0] divi;
+wire [15:0] or_gat;
+wire [15:0] xor_gat;
+wire [15:0] nand_gat;
+wire [15:0] nor_gat;
+wire [15:0] xnor_gat;
+wire [15:0] not_gat;
+wire [15:0] left_sft;
+wire [15:0] right_sft;
+wire [5:0] select;
 reg [31:0] out;
 
-always@(select)
+alumodule alu(code,sum,diff,negate,multiplied,divi,or_gat,xor_gat,nand_gat,nor_gat,xnor_gat,not_gat,left_sft,right_sft,select);
+
+always@(*)
     case(select)
         // 6'b000000: begin//MOV
 
@@ -71,6 +73,7 @@ always@(select)
         010000: begin//LRSH
         out[15:0]=right_sft;
         end
-
     endcase
+    // memory mem2(Rdst1,out[15:0],1'b0);
+    // memory mem3(Rdst2,out[31:16],1'b0);
 endmodule
