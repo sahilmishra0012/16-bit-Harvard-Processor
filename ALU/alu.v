@@ -28,18 +28,17 @@ output [15:0] nor_gat,
 output [15:0] xnor_gat,
 output [15:0] not_gat,
 output [15:0] left_sft,
-output [15:0] right_sft
+output [15:0] right_sft,
+output wire [5:0] select
 );
 wire [5:0] Rdst2;
 wire [5:0] Rdst1;
 wire [5:0] Rsrc2;
 wire [5:0] Rsrc1;
-wire [8:0] RsrcAdd;
-wire [8:0] RdstAdd;
+wire [7:0] RsrcAdd;
+wire [7:0] RdstAdd;
 wire [15:0] immediate;
-wire [5:0] select;
 wire [15:0] a,b;
-reg [15:0] k;
 assign select[5:0]=code[31:26];
 
 
