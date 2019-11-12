@@ -62,18 +62,18 @@ left lft1(b,a,left_sft);
 right rght1(b,a,right_sft);
 always@(*)
     case(select)
-        // 6'b000000: begin//MOV
+        6'b000000: begin//MOV
+        out[15:0]=immediate;
+        end
+        000001: begin//MOV
+        out[15:0]=Rsrc1;
+        end
 
-        // end
-        // 000001: begin//MOV
-
-        // end
         // 000010: begin//LOAD
-
         // end
         // 000011: begin//STORE
-
         // end
+
         000100: begin//ADD
         out[15:0]=sum;
         end

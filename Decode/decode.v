@@ -19,7 +19,6 @@ reg [15:0] immediate;
 reg  [5:0] Rdst2,Rdst1,Rsrc2,Rsrc1;
 reg [7:0] RsrcAdd,RdstAdd;
 assign select[5:0]=code[31:26];
-reg c;
 always@(select)
     case(select)
         6'b000000: begin
