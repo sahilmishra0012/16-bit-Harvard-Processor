@@ -16,6 +16,7 @@
 `include "/home/samthekiller/Desktop/Harvard Architecture/My_Code/ALU/Shift/left_shift.v"
 module alumodule(input [31:0] code,output [31:0] out);
 reg  [31:0] out;
+wire [19:0] outp;
 wire [15:0] out1;
 wire [15:0] out2;
 wire [15:0] sum;
@@ -61,67 +62,69 @@ not_gate not1(a,not_gat);
 left lft1(b,a,left_sft);
 right rght1(b,a,right_sft);
 always@(*)
+begin
     case(select)
         6'b000000: begin//MOV
         out[31:16]=16'b0;
         out[15:0]=immediate;
         end
-        000001: begin//MOV
+        6'b000001: begin//MOV
         out[31:16]=16'b0;
         out[15:0]=Rsrc1;
         end
-        000100: begin//ADD
+        6'b000100: begin//ADD
         out[31:16]=16'b0;
         out[15:0]=sum;
         end
-        000101: begin//SUB
+        6'b000101: begin//SUB
         out[31:16]=16'b0;
         out[15:0]=diff;
         end
-        000110: begin//NEG
+        6'b000110: begin//NEG
         out[31:16]=16'b0;
         out[15:0]=negate;
         end
-        000111: begin//MUL
+        6'b000111: begin//MUL
         out[31:0]=multiplied;
         end
-        001000: begin//DIV
+        6'b001000: begin//DIV
         out[31:16]=16'b0;
         out[15:0]=divi;
         end
-        001001: begin//OR
+        6'b001001: begin//OR
         out[31:16]=16'b0;
         out[15:0]=or_gat;
         end
-        001010: begin//XOR
+        6'b001010: begin//XOR
         out[31:16]=16'b0;
         out[15:0]=xor_gat;
         end
-        001011: begin//NAND
+        6'b001011: begin//NAND
         out[31:16]=16'b0;
         out[15:0]=nand_gat;
         end
-        001100: begin//NOR
+        6'b001100: begin//NOR
         out[31:16]=16'b0;
         out[15:0]=nor_gat;
         end
-        001101: begin//XNOR
+        6'b001101: begin//XNOR
         out[31:16]=16'b0;
         out[15:0]=xnor_gat;
         end
-        001110: begin//NOT
+        6'b001110: begin//NOT
         out[31:16]=16'b0;
         out[15:0]=not_gat;
         end
-        001111: begin//LLSH
+        6'b001111: begin//LLSH
         out[31:16]=16'b0;
         out[15:0]=left_sft;
         end
-        010000: begin//LRSH
+        6'b010000: begin//LRSH
         out[31:16]=16'b0;
         out[15:0]=right_sft;
         end
     endcase
+    end
     assign out1[15:0]=out[15:0];
     assign out2[15:0]=out[31:15];
     memory mem21(Rdst1,out1,1'b0);
