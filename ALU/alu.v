@@ -14,7 +14,7 @@
 `include "/home/samthekiller/Desktop/Harvard Architecture/My_Code/ALU/NOT Gate/not_custom.v"
 `include "/home/samthekiller/Desktop/Harvard Architecture/My_Code/ALU/Shift/right_shift.v"
 `include "/home/samthekiller/Desktop/Harvard Architecture/My_Code/ALU/Shift/left_shift.v"
-module alumodule(input [31:0] code);
+module alumodule(input [31:0] code,output [31:0] out);
 reg  [31:0] out;
 wire [15:0] out1;
 wire [15:0] out2;
