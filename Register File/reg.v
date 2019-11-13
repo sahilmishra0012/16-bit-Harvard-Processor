@@ -1,6 +1,5 @@
 module reg_file  
-(  
-    input clk,  
+(   
     input rst,  
     input reg_write_en,  
     input [2:0] reg_write_dest,  
@@ -10,7 +9,6 @@ module reg_file
     input [2:0] reg_read_addr_2,  
     output [15:0] reg_read_data_2  
 );  
-    integer i;
     reg [15:0] reg_array [31:0];    
     always @ (posedge clk or posedge rst) begin  
         if(rst) begin  
