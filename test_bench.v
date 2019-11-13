@@ -4,13 +4,11 @@
 module upcounter_testbench();
 reg clk, reset;
 wire [5:0] counter;
-wire [5:0] ins_padder;
 wire [31:0] Instruction_out;
 wire [31:0] out;
 
 up_counter dut(clk, reset, counter);
-assign ins_padder=counter;
-Instruction_Mem mem1(Instruction_out, ins_padder);
+Instruction_Mem mem1(Instruction_out, counter);
 alumodule alu1(Instruction_out,out);
 initial 
 begin 

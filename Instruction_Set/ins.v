@@ -6,7 +6,7 @@
 	begin
 		case (PCAdress)
 			32'd0:  Instruction_out = 32'b00000000001000000000000000000011; // mov ax,a
-			32'd1:  Instruction_out = 32'b00000000001000000000000000000010; // mov bx,b
+			32'd1:  Instruction_out = 32'b00000000010000000000000000000010; // mov bx,b
 			32'd2:  Instruction_out = 32'b00010000011001000000000000100010; // add cx,ax,bx
 			
 			default: Instruction_out = 32'b00000000000000000000000000000000;
