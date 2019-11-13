@@ -14,7 +14,7 @@
 `include "/home/samthekiller/Desktop/Harvard Architecture/My_Code/ALU/NOT Gate/not_custom.v"
 `include "/home/samthekiller/Desktop/Harvard Architecture/My_Code/ALU/Shift/right_shift.v"
 `include "/home/samthekiller/Desktop/Harvard Architecture/My_Code/ALU/Shift/left_shift.v"
-module alumodule(input [31:0] code,output [31:0] out);
+module alumodule(input [31:0] code,input clock,output [31:0] out);
 reg  [31:0] out;
 wire [19:0] outp;
 wire [15:0] out1;
@@ -45,8 +45,8 @@ assign select[5:0]=code[31:26];
 
 
 decoder dc1(code,Rdst2,Rdst1,Rsrc2,Rsrc1,RsrcAdd,RdstAdd,immediate);
-memory mem1(Rsrc2,b,1'b1);
-memory mem2(Rsrc1,a,1'b1);
+memory mem1(Rsrc2,clock,b,1'b1);
+memory mem2(Rsrc1,clock,a,1'b1);
 
 create_tb mod00(b,a,2'b0,sum);
 create_tb mod01(b,~a,2'b0,diff);
@@ -127,7 +127,7 @@ begin
     end
     assign out1[15:0]=out[15:0];
     assign out2[15:0]=out[31:15];
-    memory mem21(Rdst1,out1,1'b0);
-    memory mem31(Rdst2,out2,1'b0);
+    memory mem21(Rdst1,clock,out1,1'b0);
+    memory mem31(Rdst2,clock,out2,1'b0);
 
 endmodule

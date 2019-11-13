@@ -1,5 +1,6 @@
-module memory(address,out,read);
+module memory(address,clock,out,read);
 input [4:0] address;
+input clock;
 output reg [15:0] out;
 input read;
 reg [15:0] memory [255:0];					
@@ -264,20 +265,17 @@ begin
 end
 
 
-always @(*)
+always @(negedge clock)
 
 begin
-	case(read)
-	1'b1:
+	if(read==1)
 	begin
-	out=memory[address];
+		out=memory[address];
 	end
-	1'b0:
+	else
 	begin	
-	memory[address]=out;
-	out=memory[address];  		
+		memory[address]=out;
 	end
-	endcase
 end
 
 

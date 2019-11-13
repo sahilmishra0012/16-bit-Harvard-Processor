@@ -9,7 +9,7 @@ wire [31:0] out;
 
 up_counter dut(clk, reset, counter);
 Instruction_Mem mem1(Instruction_out, counter);
-alumodule alu1(Instruction_out,out);
+alumodule alu1(Instruction_out,clk,out);
 initial 
 begin 
 clk=0;

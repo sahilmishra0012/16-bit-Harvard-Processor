@@ -4,7 +4,7 @@ int main()
 {
     for(int i=0;i<256;i++)
     {
-        cout<<"memory["<<i<<"]=16'b"<<0<<";"<<endl;
+        cout<<"memory["<<i<<"]=16'b"<<i<<";"<<endl;
     }
 }
 
