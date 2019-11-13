@@ -10,7 +10,7 @@ reg [7:0] RsrcAdd,RdstAdd;
 assign select[5:0]=code[31:26];
 always@(select)
     case(select)
-        6'b000000: begin
+        000000: begin
             Rdst2=code[25:21];
             immediate=code[15:0];
         end
