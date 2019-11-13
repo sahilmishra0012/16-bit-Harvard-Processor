@@ -5,9 +5,9 @@ module Instruction_Mem(Instruction_out, PCAdress);
   always @(PCAdress)
   begin
     case (PCAdress)
-		16'd0:  Instruction_out = 16'b; // mov ax,a
-		16'd1:  Instruction_out = 16'b; // mov bx,b
-		16'd2:  Instruction_out = 16'b; // add cx,ax,bx
+		16'd0:  Instruction_out = 16'b0; // mov ax,a
+		16'd1:  Instruction_out = 16'b0; // mov bx,b
+		16'd2:  Instruction_out = 16'b0; // add cx,ax,bx
 		// 16'd3:  Instruction_out = 16'b; // LDI R5,1024 #11 bit -1024
 		// 16'd4:  Instruction_out = 16'b; // LDI R2,281
 		// 16'd5:  Instruction_out = 16'b; // ADD R2,R2,R5

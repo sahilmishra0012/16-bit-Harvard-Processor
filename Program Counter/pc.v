@@ -7,7 +7,7 @@ module PC(clk, load, reset, D, count);
 			if (~reset)
 				count <= 16'b0;
 			else if (load) 
-            count <= D;  
-         else
+                count <= D;  
+            else
 				count <= count + 1'b1;
 endmodule
