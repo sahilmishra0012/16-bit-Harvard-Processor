@@ -70,12 +70,6 @@ always@(*)
         out[31:16]=16'b0;
         out[15:0]=Rsrc1;
         end
-
-        // 000010: begin//LOAD
-        // end
-        // 000011: begin//STORE
-        // end
-
         000100: begin//ADD
         out[31:16]=16'b0;
         out[15:0]=sum;
