@@ -6,47 +6,32 @@
 :vpi_module "vhdl_sys";
 :vpi_module "v2005_math";
 :vpi_module "va_math";
-S_0x55bab009c180 .scope module, "PC" "PC" 2 1;
+S_0x557dc5ac0180 .scope module, "up_counter" "up_counter" 2 1;
  .timescale 0 0;
     .port_info 0 /INPUT 1 "clk"
-    .port_info 1 /INPUT 1 "load"
-    .port_info 2 /INPUT 1 "reset"
-    .port_info 3 /INPUT 16 "D"
-    .port_info 4 /OUTPUT 16 "count"
-o0x7fe8d9b84018 .functor BUFZ 16, C4<zzzzzzzzzzzzzzzz>; HiZ drive
-v0x55bab009c3c0_0 .net "D", 15 0, o0x7fe8d9b84018;  0 drivers
-o0x7fe8d9b84048 .functor BUFZ 1, C4<z>; HiZ drive
-v0x55bab00f3530_0 .net "clk", 0 0, o0x7fe8d9b84048;  0 drivers
-v0x55bab00f35f0_0 .var "count", 15 0;
-o0x7fe8d9b840a8 .functor BUFZ 1, C4<z>; HiZ drive
-v0x55bab00f36e0_0 .net "load", 0 0, o0x7fe8d9b840a8;  0 drivers
-o0x7fe8d9b840d8 .functor BUFZ 1, C4<z>; HiZ drive
-v0x55bab00f37a0_0 .net "reset", 0 0, o0x7fe8d9b840d8;  0 drivers
-E_0x55bab009cb90/0 .event negedge, v0x55bab00f37a0_0;
-E_0x55bab009cb90/1 .event posedge, v0x55bab00f3530_0;
-E_0x55bab009cb90 .event/or E_0x55bab009cb90/0, E_0x55bab009cb90/1;
-    .scope S_0x55bab009c180;
+    .port_info 1 /INPUT 1 "reset"
+    .port_info 2 /OUTPUT 4 "counter"
+L_0x557dc5b175c0 .functor BUFZ 4, v0x557dc5b173c0_0, C4<0000>, C4<0000>, C4<0000>;
+o0x7f4dbaab3018 .functor BUFZ 1, C4<z>; HiZ drive
+v0x557dc5ac0370_0 .net "clk", 0 0, o0x7f4dbaab3018;  0 drivers
+v0x557dc5b172e0_0 .net "counter", 3 0, L_0x557dc5b175c0;  1 drivers
+v0x557dc5b173c0_0 .var "counter_up", 3 0;
+o0x7f4dbaab30a8 .functor BUFZ 1, C4<z>; HiZ drive
+v0x557dc5b17480_0 .net "reset", 0 0, o0x7f4dbaab30a8;  0 drivers
+E_0x557dc5ac06a0 .event posedge, v0x557dc5b17480_0, v0x557dc5ac0370_0;
+    .scope S_0x557dc5ac0180;
 T_0 ;
-    %wait E_0x55bab009cb90;
-    %load/vec4 v0x55bab00f37a0_0;
-    %inv;
+    %wait E_0x557dc5ac06a0;
+    %load/vec4 v0x557dc5b17480_0;
     %flag_set/vec4 8;
     %jmp/0xz  T_0.0, 8;
-    %pushi/vec4 0, 0, 16;
-    %assign/vec4 v0x55bab00f35f0_0, 0;
+    %pushi/vec4 0, 0, 4;
+    %assign/vec4 v0x557dc5b173c0_0, 0;
     %jmp T_0.1;
 T_0.0 ;
-    %load/vec4 v0x55bab00f36e0_0;
-    %flag_set/vec4 8;
-    %jmp/0xz  T_0.2, 8;
-    %load/vec4 v0x55bab009c3c0_0;
-    %assign/vec4 v0x55bab00f35f0_0, 0;
-    %jmp T_0.3;
-T_0.2 ;
-    %load/vec4 v0x55bab00f35f0_0;
-    %addi 1, 0, 16;
-    %assign/vec4 v0x55bab00f35f0_0, 0;
-T_0.3 ;
+    %load/vec4 v0x557dc5b173c0_0;
+    %addi 1, 0, 4;
+    %assign/vec4 v0x557dc5b173c0_0, 0;
 T_0.1 ;
     %jmp T_0;
     .thread T_0;
