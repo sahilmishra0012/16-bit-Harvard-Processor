@@ -24,7 +24,7 @@ reset=1;
 reset=0;
 end
 initial
-#650 $finish;
+#40 $finish;
 initial
-$monitor("Instruction Number => %d || Instruction => %b",counter,out);
+$monitor("Instruction Number => %d || Instruction => %b",counter,Instruction_out);
 endmodule 
