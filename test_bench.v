@@ -26,5 +26,5 @@ end
 initial
 #40 $finish;
 initial
-$monitor("Instruction Number => %d || Instruction => %b",counter,Instruction_out);
+$monitor("Instruction Number => %d || Instruction => %b || Output => %b",counter,Instruction_out,out);
 endmodule 

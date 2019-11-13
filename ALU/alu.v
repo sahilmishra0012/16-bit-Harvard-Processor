@@ -63,9 +63,11 @@ right rght1(b,a,right_sft);
 always@(*)
     case(select)
         6'b000000: begin//MOV
+        out[31:16]=16'b0;
         out[15:0]=immediate;
         end
         000001: begin//MOV
+        out[31:16]=16'b0;
         out[15:0]=Rsrc1;
         end
 
@@ -75,42 +77,54 @@ always@(*)
         // end
 
         000100: begin//ADD
+        out[31:16]=16'b0;
         out[15:0]=sum;
         end
         000101: begin//SUB
+        out[31:16]=16'b0;
         out[15:0]=diff;
         end
         000110: begin//NEG
+        out[31:16]=16'b0;
         out[15:0]=negate;
         end
         000111: begin//MUL
         out[31:0]=multiplied;
         end
         001000: begin//DIV
+        out[31:16]=16'b0;
         out[15:0]=divi;
         end
         001001: begin//OR
+        out[31:16]=16'b0;
         out[15:0]=or_gat;
         end
         001010: begin//XOR
+        out[31:16]=16'b0;
         out[15:0]=xor_gat;
         end
         001011: begin//NAND
+        out[31:16]=16'b0;
         out[15:0]=nand_gat;
         end
         001100: begin//NOR
+        out[31:16]=16'b0;
         out[15:0]=nor_gat;
         end
         001101: begin//XNOR
+        out[31:16]=16'b0;
         out[15:0]=xnor_gat;
         end
         001110: begin//NOT
+        out[31:16]=16'b0;
         out[15:0]=not_gat;
         end
         001111: begin//LLSH
+        out[31:16]=16'b0;
         out[15:0]=left_sft;
         end
         010000: begin//LRSH
+        out[31:16]=16'b0;
         out[15:0]=right_sft;
         end
     endcase
