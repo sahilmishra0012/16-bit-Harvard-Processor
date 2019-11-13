@@ -1,6 +1,5 @@
 module memory(address,out,read);
-integer i;
-input [5:0] address;
+input [4:0] address;
 output reg [15:0] out;
 input read;
 reg [15:0] memory [255:0];					

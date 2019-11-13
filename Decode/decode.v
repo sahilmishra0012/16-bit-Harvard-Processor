@@ -12,11 +12,11 @@
 module decoder(code,Rdst2,Rdst1,Rsrc2,Rsrc1,RsrcAdd,RdstAdd,immediate);
 input [31:0]code;
 wire [5:0] select;
-output  [5:0] Rdst2,Rdst1,Rsrc2,Rsrc1;
+output  [4:0] Rdst2,Rdst1,Rsrc2,Rsrc1;
 output [7:0] RsrcAdd,RdstAdd;
 output [15:0] immediate;
 reg [15:0] immediate;
-reg  [5:0] Rdst2,Rdst1,Rsrc2,Rsrc1;
+reg  [4:0] Rdst2,Rdst1,Rsrc2,Rsrc1;
 reg [7:0] RsrcAdd,RdstAdd;
 assign select[5:0]=code[31:26];
 always@(select)
