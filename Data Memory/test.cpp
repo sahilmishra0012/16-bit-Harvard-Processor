@@ -2,9 +2,9 @@
 using namespace std;
 int main()
 {
-    for(int i=0;i<256;i++)
+    for(int i=0;i<64;i++)
     {
-        cout<<"memory["<<i<<"]=16'b"<<i<<";"<<endl;
+        cout<<"memory[5'd"<<i<<"]=16'd"<<i<<";"<<endl;
     }
 }
 
