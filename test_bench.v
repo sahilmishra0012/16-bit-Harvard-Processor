@@ -22,7 +22,7 @@ reset=1;
 reset=0;
 end
 initial
-#60 $finish;
+#40 $finish;
 initial
 $monitor("Instruction Number => %d || Instruction => %b || Output => %b",counter,Instruction_out,out);
 endmodule 
