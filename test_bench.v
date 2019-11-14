@@ -9,7 +9,7 @@ wire [31:0] out;
 
 up_counter dut(clk, reset, counter);
 Instruction_Mem mem1(Instruction_out, counter);
-alumodule alu1(Instruction_out,clk,out);
+alumodule alu1(Instruction_out,clk,reset,out);
 initial 
 begin 
 clk=0;
@@ -22,7 +22,7 @@ reset=1;
 reset=0;
 end
 initial
-#40 $finish;
+#60 $finish;
 initial
 $monitor("Instruction Number => %d || Instruction => %b || Output => %b",counter,Instruction_out,out);
 endmodule 

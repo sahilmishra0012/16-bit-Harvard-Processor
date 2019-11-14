@@ -14,7 +14,8 @@
 `include "/home/samthekiller/Desktop/Harvard Architecture/My_Code/ALU/NOT Gate/not_custom.v"
 `include "/home/samthekiller/Desktop/Harvard Architecture/My_Code/ALU/Shift/right_shift.v"
 `include "/home/samthekiller/Desktop/Harvard Architecture/My_Code/ALU/Shift/left_shift.v"
-module alumodule(input [31:0] code,input clock,output [31:0] out);
+module alumodule(input [31:0] code,input clock,input reset,output [31:0] out);
+wire [15:0] in;
 reg  [31:0] out;
 wire [19:0] outp;
 wire [15:0] out1;
@@ -45,8 +46,8 @@ assign select[5:0]=code[31:26];
 
 
 decoder dc1(code,Rdst2,Rdst1,Rsrc2,Rsrc1,RsrcAdd,RdstAdd,immediate);
-memory mem1(Rsrc2,clock,b,1'b1);
-memory mem2(Rsrc1,clock,a,1'b1);
+memory_one mem1(Rsrc2,clock,reset,in,b,1'b1);//Read Output
+memory_one mem2(Rsrc1,clock,reset,in,a,1'b1);// Read Output
 
 create_tb mod00(b,a,2'b0,sum);
 create_tb mod01(b,~a,2'b0,diff);
@@ -127,7 +128,7 @@ begin
     end
     assign out1[15:0]=out[15:0];
     assign out2[15:0]=out[31:15];
-    memory mem21(Rdst1,clock,out1,1'b0);
-    memory mem31(Rdst2,clock,out2,1'b0);
+    memory_one mem21(Rdst1,clock,reset,out1,in,1'b0);//Write
+    memory_one mem31(Rdst2,clock,reset,out2,in,1'b0);//Write
 
 endmodule
